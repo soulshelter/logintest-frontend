@@ -1,22 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Mypage from '../views/Mypage.vue'
+import Login from '../views/Login.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
+
+const requireAuth = (from, to, next) => {
+  console.log(store.getters.isAuthenticated)
+  const isAuthenticated = store.getters.isAuthenticated
+  if (isAuthenticated) {
+    return next()
+  }
+  alert('로그인 해주세요')
+  next('/login?returnPath=' + from.name)
+}
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/mypage',
+    name: 'mypage',
+    component: Mypage,
+    beforeEnter: requireAuth
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
 ]
 
