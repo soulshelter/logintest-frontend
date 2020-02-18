@@ -66,16 +66,6 @@ export default {
   methods: {
     login (id, password) {
       console.log(id + ' / ' + password)
-      // console.log(this.$store.getters.isAuthenticated)
-      // return this.$http.get('http://localhost:8000/json/manage/login', {
-      //   userid: id,
-      //   userpasswd: password
-      // })
-      // .than(() =>  {
-      //   this.$store.dispatch('LOGIN', { id, password })
-      //   .then(() => this.redirect())
-      // })
-      //
       this.$store.dispatch('LOGIN', { id, password })
         .then(() => this.redirect())
     },
@@ -85,13 +75,16 @@ export default {
         this.$router.push('/')
       } else {
         const tokens = search.replace(/^\?/, '').split('&')
+        console.log('tokens : ' + tokens)
         const { returnPath } = tokens.reduce((qs, tkn) => {
+          console.log(qs, tkn)
           const pair = tkn.split('=')
           qs[pair[0]] = decodeURIComponent(pair[1])
           return qs
         })
         // 리다이렉트 처리
-        this.$router.push(returnPath)
+        console.log('returnPath : ' + returnPath)
+        this.$router.push('mypage')
       }
     }
   }

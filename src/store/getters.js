@@ -4,7 +4,7 @@ export default {
   },
   isAuthenticated: function (state) {
     console.log('isAuthenticated : ' + state.accessToken)
-    if (state.accessToken === null) {
+    if (state.accessToken === 'null') {
       return false
     }
     return true
