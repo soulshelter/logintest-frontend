@@ -8,6 +8,11 @@ import state from './state'
 
 Vue.use(Vuex)
 
+/**
+ * Vuex
+ * 모든 페이지의 전역변수 사용을 위한 store
+ */
+
 export default new Vuex.Store({
   state,
   mutations,

@@ -7,6 +7,11 @@ import store from '../store'
 
 Vue.use(VueRouter)
 
+/**
+ * Vue Router
+ * SPA의 각 페이지 연결
+ */
+
 const requireAuth = (from, to, next) => {
   console.log(store.getters.isAuthenticated)
   const isAuthenticated = store.getters.isAuthenticated

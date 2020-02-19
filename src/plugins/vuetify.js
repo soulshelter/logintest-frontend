@@ -4,6 +4,11 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+/**
+ * Vuetify 설정
+ * 각 색상 설정 가능
+ */
+
 export default new Vuetify({
   theme: {
     options: {
