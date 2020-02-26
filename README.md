@@ -1,4 +1,5 @@
 # logintest-frontend
+Vue-CLI 3.0, Vuex, Vue-router, Axios를 이용한 로그인 프론트엔드 구현
 
 ## Project setup
 ```

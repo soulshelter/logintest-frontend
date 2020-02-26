@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     login (id, password) {
-      console.log(id + ' / ' + password)
       this.$store.dispatch('LOGIN', { id, password })
         .then(() => this.redirect())
     },
